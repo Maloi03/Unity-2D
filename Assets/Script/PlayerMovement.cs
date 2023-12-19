@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Jump()
     {
-        if (isGrounded == true)
+        if (isGrounded)
         {
             numberOfJumps = 0;
             playerRB.velocity = new Vector2(playerRB.velocity.x, jumpForce);
@@ -71,5 +71,13 @@ public class PlayerMovement : MonoBehaviour
             }
         }
        
+    }
+    private void OnEnable()
+    {
+        controls.Enable();
+    }
+    private void OnDisable()
+    {
+        controls.Disable();
     }
 }

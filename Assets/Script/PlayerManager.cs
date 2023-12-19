@@ -10,6 +10,7 @@ public class PlayerManager : MonoBehaviour
 {
     public static bool isGameOver;
     public GameObject gameOverScreen;
+    public GameObject pauseMenuScreen;
     public static Vector2 lastCheckPointPos = new Vector2(-8,0);
     public static int numberOfCoins;
     public TextMeshProUGUI coinsText;
@@ -40,5 +41,20 @@ public class PlayerManager : MonoBehaviour
     public void ReplayLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void GamePause()
+    {
+        Time.timeScale = 0;
+        pauseMenuScreen.SetActive(true);
+    }
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+        pauseMenuScreen.SetActive(false);
+
+    }
+    public void GoToMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 }
