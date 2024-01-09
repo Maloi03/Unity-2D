@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3124750586861149886}
   - component: {fileID: 7399859218174439909}
   - component: {fileID: 8535432429706685004}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mace Preview
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1539619873183025791}
   - component: {fileID: 5767105475727592786}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Chain
   m_TagString: Enemy
   m_Icon: {fileID: 0}

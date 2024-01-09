@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3785128843219047390}
   - component: {fileID: 3017557477670315184}
   - component: {fileID: 5044547605377747116}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: saw
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2162459272247139240}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: rightCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3227939682701237460}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: leftCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 5385801444715424657}
   - component: {fileID: 5923073865115676690}
   - component: {fileID: 6283815967284801728}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Saw
   m_TagString: Enemy
   m_Icon: {fileID: 0}

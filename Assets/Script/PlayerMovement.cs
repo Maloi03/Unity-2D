@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     Player controls; 
     float direction = 0;
     public float speed = 400;
-    bool isFacingRight = true;
+    public bool isFacingRight = true;
     public float jumpForce = 6;
     bool isGrounded;
     int numberOfJumps = 0;

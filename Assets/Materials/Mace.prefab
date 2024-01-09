@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1086623185692926217}
   - component: {fileID: 8181561311572552695}
   - component: {fileID: 7517784539292769119}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mace
   m_TagString: Enemy
   m_Icon: {fileID: 0}

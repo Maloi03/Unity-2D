@@ -44,6 +44,15 @@ public partial class @Player: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Press"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""4a585883-7c97-46a6-a504-df262f2d927b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -134,6 +143,28 @@ public partial class @Player: IInputActionCollection2, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4346b230-9f55-41e1-9e13-b8162e0b24fe"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""aee1baa8-66c8-4f41-98f8-ac8eeeec7cd8"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -144,6 +175,7 @@ public partial class @Player: IInputActionCollection2, IDisposable
         m_Land = asset.FindActionMap("Land", throwIfNotFound: true);
         m_Land_Move = m_Land.FindAction("Move", throwIfNotFound: true);
         m_Land_Jump = m_Land.FindAction("Jump", throwIfNotFound: true);
+        m_Land_Shoot = m_Land.FindAction("Shoot", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -207,12 +239,14 @@ public partial class @Player: IInputActionCollection2, IDisposable
     private List<ILandActions> m_LandActionsCallbackInterfaces = new List<ILandActions>();
     private readonly InputAction m_Land_Move;
     private readonly InputAction m_Land_Jump;
+    private readonly InputAction m_Land_Shoot;
     public struct LandActions
     {
         private @Player m_Wrapper;
         public LandActions(@Player wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Land_Move;
         public InputAction @Jump => m_Wrapper.m_Land_Jump;
+        public InputAction @Shoot => m_Wrapper.m_Land_Shoot;
         public InputActionMap Get() { return m_Wrapper.m_Land; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -228,6 +262,9 @@ public partial class @Player: IInputActionCollection2, IDisposable
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
+            @Shoot.started += instance.OnShoot;
+            @Shoot.performed += instance.OnShoot;
+            @Shoot.canceled += instance.OnShoot;
         }
 
         private void UnregisterCallbacks(ILandActions instance)
@@ -238,6 +275,9 @@ public partial class @Player: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
+            @Shoot.started -= instance.OnShoot;
+            @Shoot.performed -= instance.OnShoot;
+            @Shoot.canceled -= instance.OnShoot;
         }
 
         public void RemoveCallbacks(ILandActions instance)
@@ -259,5 +299,6 @@ public partial class @Player: IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnShoot(InputAction.CallbackContext context);
     }
 }
